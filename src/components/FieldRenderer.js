@@ -35,6 +35,7 @@ const FieldRenderer = ({ field, value, onChange, allValues, error }) => {
         <FormControl fullWidth sx={{ mb: 2 }}>
           <InputLabel>{field.label}</InputLabel>
           <Select
+          labelId={`${field.name}-label`}
             value={value || ""}
             onChange={(e) => onChange(field.name, e.target.value)}
             label={field.label}
@@ -50,6 +51,7 @@ const FieldRenderer = ({ field, value, onChange, allValues, error }) => {
         <FormControl fullWidth sx={{ mb: 2 }}>
           <InputLabel>{field.label}</InputLabel>
           <Select
+          labelId={`${field.name}-label`}
             multiple
             value={value || []}
             onChange={(e) => onChange(field.name, e.target.value)}

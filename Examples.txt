@@ -55,30 +55,43 @@ After filling out and submitting the form, the resulting output is displayed in 
 
 
 Example 2: With Conditional Rendering
-
-
-    {
-      "title": "Feedback Form",
-      "fields": [
-        {
-          "label": "Do you want to give feedback?",
-          "name": "giveFeedback",
-          "type": "dropdown",
-          "options": ["Yes", "No"],
-          "required": true
-        },
-        {
-          "label": "Your Feedback",
-          "name": "feedbackText",
-          "type": "textarea",
-          "required": true,
-          "dependsOn": {
-            "field": "giveFeedback",
-            "value": "Yes"
-          }
-        }
-      ]
+{
+  "title": "Product Feedback Form",
+  "fields": [
+    { "label": "Product Name", "name": "productName", "type": "text", "required": true },
+    { "label": "Rate Product Quality", "name": "quality", "type": "dropdown", "options": ["Excellent", "Good", "Average", "Poor"], "required": true },
+    { 
+      "label": "Mention Issues Faced", 
+      "name": "issues", 
+      "type": "multiselect", 
+      "options": ["Late Delivery", "Defective Item", "Wrong Product", "Packaging Issue", "Other"], 
+      "condition": { "dependsOn": "quality", "value": "Poor" }
+    },
+    { 
+      "label": "Describe Your Experience", 
+      "name": "experience", 
+      "type": "textarea", 
+      "required": true, 
+      "placeholder": "Tell us what you liked or disliked about the product"
+    },
+    { 
+      "label": "Suggestions for Improvement", 
+      "name": "suggestions", 
+      "type": "textarea", 
+      "placeholder": "Optional - any feedback for our team"
+    },
+    { 
+      "label": "Would you like to be contacted?", 
+      "name": "contact", 
+      "type": "dropdown", 
+      "options": ["Yes", "No"] 
+    },
+    { 
+      "label": "Contact Methods", 
+      "name": "contactMethods", 
+      "type": "multiselect", 
+      "options": ["Email", "Phone", "WhatsApp"], 
+      "condition": { "dependsOn": "contact", "value": "Yes" }
     }
-
-
-If the user selects "No", the feedback textarea remains hidden.
+  ]
+}

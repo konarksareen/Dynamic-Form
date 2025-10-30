@@ -63,3 +63,35 @@ Start the development server
 Open the app in your browser at
 
     http://localhost:3000
+
+
+Testing
+
+This project includes a small test suite built with Jest and React Testing Library.
+The goal of these tests is to make sure the dynamic form behaves correctly across different scenarios: rendering fields from JSON, handling validation, and reacting to conditional logic.
+
+What’s covered
+
+    Dynamic rendering of form fields from schema
+    
+    Required and pattern-based validations
+    
+    Conditional fields using the condition.dependsOn rule
+    
+    Dropdowns, multi-selects, and text areas
+    
+    Form submission and output rendering
+
+How to run the tests
+
+In the project root, run:
+
+    npm test
+
+
+This will start Jest in watch mode so you can see test results as you make changes.
+
+How to add more tests
+
+    All tests live under src/Tests/.
+    You can add new files there 
